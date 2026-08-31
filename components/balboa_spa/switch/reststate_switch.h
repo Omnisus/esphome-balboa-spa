@@ -9,10 +9,10 @@ namespace esphome
   namespace balboa_spa
   {
 
-    class IdleStateSwitch : public switch_::Switch
+    class RestStateSwitch : public switch_::Switch
     {
     public:
-      IdleStateSwitch() {};
+      RestStateSwitch() {};
       void update(SpaState *spaState);
       void set_parent(BalboaSpa *parent);
 
@@ -20,6 +20,7 @@ namespace esphome
       void write_state(bool state) override;
 
     private:
+    void toogle_heat();
       BalboaSpa *spa;
     };
 

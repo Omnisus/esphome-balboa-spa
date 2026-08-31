@@ -1,5 +1,6 @@
 ## Component for Balboa Spa
 This project is based on the UART reader from [Dakoriki/ESPHome-Balboa-Spa](https://github.com/Dakoriki/ESPHome-Balboa-Spa)
+
 [Balboa Worldwide app](https://github.com/ccutrer/balboa_worldwide_app/wiki)
 
 There are a ton of these implementations on Github.  None of the ones I could find implemented the external component pattern as prescribed by EspHome.  So I create this one.  
