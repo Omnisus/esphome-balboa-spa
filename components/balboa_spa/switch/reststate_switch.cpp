@@ -4,7 +4,7 @@ namespace esphome
 {
     namespace balboa_spa
     {
-        void RestStateSwitch::update(SpaState *spaState)
+        void ReststateSwitch::update(SpaState *spaState)
         {
             if (this->state != spaState->rest_mode)
             {
@@ -12,19 +12,19 @@ namespace esphome
             }
         }
 
-        void RestStateSwitch::set_parent(BalboaSpa *parent)
+        void ReststateSwitch::set_parent(BalboaSpa *parent)
         {
             spa = parent;
             parent->register_listener([this](SpaState *spaState)
                                       { this->update(spaState); });
         }
 
-        void RestStateSwitch::toggle_heat()
+        void ReststateSwitch::toggle_heat()
         {
             spa->toggle_heat();
         }
 
-        void RestStateSwitch::write_state(bool state)
+        void ReststateSwitch::write_state(bool state)
         {
             SpaState *spaState = spa->get_current_state();
 

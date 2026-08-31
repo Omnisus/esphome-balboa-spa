@@ -9,10 +9,10 @@ namespace esphome
   namespace balboa_spa 
   {
 
-    class RestStateSwitch : public switch_::Switch 
+    class ReststateSwitch : public switch_::Switch 
     {
       public:
-        RestStateSwitch() {};
+        ReststateSwitch() {};
         void update(SpaState *spaState);
         void set_parent(BalboaSpa *parent);
 
