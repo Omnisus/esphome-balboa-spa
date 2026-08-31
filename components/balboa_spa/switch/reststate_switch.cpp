@@ -35,12 +35,6 @@ namespace esphome
             }
         }
 
-        //Na podstawie High Range
-        /*
-        void RestStateSwitch::write_state(bool state)
-        {
-            spa->toggle_heat();
-        }
-        */
+
     } // namespace balboa_spa
 } // namespace esphome
