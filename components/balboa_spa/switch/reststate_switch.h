@@ -20,9 +20,10 @@ namespace esphome
       void write_state(bool state) override;
 
     private:
-    void toogle_heat();
+    void toggle_heat();
       BalboaSpa *spa;
-    };
+      ToggleStateMaybe setState = ToggleStateMaybe::DONT_KNOW;
+
 
   } // namespace balboa_spa
 } // namespace esphome
