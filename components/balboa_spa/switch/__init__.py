@@ -25,6 +25,7 @@ LightsSwitch = balboa_spa_ns.class_("LightsSwitch", switch.Switch)
 Light2Switch = balboa_spa_ns.class_("Light2Switch", switch.Switch)
 BlowerSwitch = balboa_spa_ns.class_("BlowerSwitch", switch.Switch)
 HighrangeSwitch = balboa_spa_ns.class_("HighrangeSwitch", switch.Switch)
+ReststateSwitch = balboa_spa_ns.class_("ReststateSwitch",switch.Switch)
 Filter2Switch = balboa_spa_ns.class_("Filter2Switch", switch.Switch)
 
 CONF_JET1 = "jet1"
@@ -35,6 +36,7 @@ CONF_LIGHTS = "light"
 CONF_LIGHT2 = "light2"
 CONF_BLOWER = "blower"
 CONF_HIGHRANGE = "highrange"
+CONF_RESTSTATE = "reststate"
 CONF_FILTER2 = "filter2"
 CONF_DISCARD_UPDATES = "discard_updates"  
 CONF_MAX_TOGGLE_ATTEMPTS = "max_toggle_attempts"
@@ -79,6 +81,11 @@ CONFIG_SCHEMA = cv.Schema(
             icon=ICON_THERMOMETER,
             default_restore_mode="DISABLED",
         ),
+        cv.Optional(CONF_RESTSTATE): switch.switch_schema(
+            ReststateSwitch,
+            icon=ICON_SWITCH,
+            default_restore_mode="DISABLED",
+        ),
         cv.Optional(CONF_FILTER2): switch.switch_schema(
             Filter2Switch,
             icon=ICON_GRAIN,
@@ -98,6 +105,7 @@ async def to_code(config):
         (CONF_LIGHTS, LightsSwitch),
         (CONF_LIGHT2, Light2Switch),
         (CONF_HIGHRANGE, HighrangeSwitch),
+        (CONF_RESTSTATE, ReststateSwitch),
         (CONF_FILTER2, Filter2Switch),
     ]:
         if conf := config.get(switch_type):
