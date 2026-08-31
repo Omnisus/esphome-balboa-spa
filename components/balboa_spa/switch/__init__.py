@@ -83,7 +83,6 @@ CONFIG_SCHEMA = cv.Schema(
         ),
         cv.Optional(CONF_RESTSTATE): switch.switch_schema(
             ReststateSwitch,
-            icon=ICON_SWITCH,
             default_restore_mode="DISABLED",
         ),
         cv.Optional(CONF_FILTER2): switch.switch_schema(
