@@ -1,40 +1,26 @@
 #include "reststate_switch.h"
 
-namespace esphome
-{
-    namespace balboa_spa
-    {
-        void ReststateSwitch::update(SpaState *spaState)
-        {
-            if (this->state != spaState->rest_mode)
-            {
-                this->publish_state(spaState->rest_mode);
-            }
-        }
+namespace esphome::balboa_spa {
+void ReststateSwitch::update(SpaState *spa_state) {
+  if (this->state != spa_state->rest_mode) {
+    this->publish_state(spa_state->rest_mode);
+  }
+}
 
-        void ReststateSwitch::set_parent(BalboaSpa *parent)
-        {
-            spa = parent;
-            parent->register_listener([this](SpaState *spaState)
-                                      { this->update(spaState); });
-        }
+void ReststateSwitch::set_parent(BalboaSpa *parent) {
+  spa_ = parent;
+  parent->register_listener([this](SpaState *spa_state) { this->update(spa_state); });
+}
 
-        void ReststateSwitch::toggle_heat()
-        {
-            spa->toggle_heat();
-        }
+void ReststateSwitch::toggle_heat_() { spa_->toggle_heat(); }
 
-        void ReststateSwitch::write_state(bool state)
-        {
-            SpaState *spaState = spa->get_current_state();
+void ReststateSwitch::write_state(bool state) {
+  SpaState *spa_state = spa_->get_current_state();
 
-            if (spaState->rest_mode != state)
-            {
-                this->setState = state ?ToggleStateMaybe::ON : ToggleStateMaybe::OFF;
-                this->toggle_heat();
-            }
-        }
+  if (spa_state->rest_mode != state) {
+    this->set_state_ = state ? ToggleStateMaybe::ON : ToggleStateMaybe::OFF;
+    this->toggle_heat_();
+  }
+}
 
-
-    } // namespace balboa_spa
-} // namespace esphome
+}  // namespace esphome::balboa_spa
