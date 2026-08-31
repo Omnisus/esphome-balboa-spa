@@ -25,5 +25,5 @@ namespace esphome
       ToggleStateMaybe setState = ToggleStateMaybe::DONT_KNOW;
 
 
-  } // namespace balboa_spa
+  }; // namespace balboa_spa
 } // namespace esphome
